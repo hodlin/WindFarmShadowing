@@ -22,8 +22,8 @@ def wind_range(v0, theta0=0, theta1=90):
 
 w0 = Wind(15, 0, 150)
 
-turbine1 = Turbine(x=0, y=0, d=18*2, w=w0, h=150)
-turbine2 = Turbine(x=100, y=0, d=18*2, w=w0, h=150)
+turbine1 = Turbine(x=0, y=0, d=40, w=w0, h=150)
+turbine2 = Turbine(x=100, y=100, d=40, w=w0, h=150)
 
 print(turbine1)
 print(turbine2)

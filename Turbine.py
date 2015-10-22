@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from math import hypot, pi, atan
+from math import hypot, pi, atan, fabs
 from Nature import Nature
 from Wind import Wind
 
@@ -66,7 +66,7 @@ class Turbine(Nature):
         if self.y == turbine.y:
             return float(0)
 
-        return round(atan(self.y-turbine.y / self.x-turbine.x), 4)
+        return round(atan(fabs(self.y-turbine.y) / fabs(self.x-turbine.x)), 4)
 
     def __repr__(self):
         return "Turbine: ({x:3.0f}, {y:3.0f})\t({v:2.1f}|{d:1.2f})"\

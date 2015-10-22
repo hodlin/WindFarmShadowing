@@ -25,7 +25,7 @@ def circle_intersection_area(r1=0, r2=0, d=0):
     d1 = (d**2 - r2**2 + r1**2) / (2 * d)
     d2 = (d**2 + r2**2 - r1**2) / (2 * d)
 
-    area = r2*2 * acos(d2 / r2)\
+    area = r2**2 * acos(d2 / r2)\
            + r1**2 * acos(d1 / r1)\
            - 0.5 * sqrt((-d + r2+ r1) * (d + r2 - r1) * (d - r2 + r1) * (d + r2 + r1))
 
