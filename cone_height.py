@@ -16,7 +16,7 @@ def cone_height(t1=Turbine(0, 0, 20), t2=Turbine(0, 0, 20)):
     direct = t1.direction(t2)
     theta = t1.w.direction
 
-    if theta == 0:
+    if theta == 0 or theta == direct:
         return d * cos(direct)
 
     if theta > direct:

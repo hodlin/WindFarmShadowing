@@ -68,13 +68,21 @@ class Turbine(Nature):
 
         return round(atan(abs(self.y-turbine.y) / abs(self.x-turbine.x)), 4)
 
+    def set_wind(self, speed, direction):
+        """
+        Setting speed f wind at rotor point
+        :return:
+        """
+        self.w.set_speed(speed)
+        self.w.set_direction(direction)
+
     def __repr__(self):
         """
         String representation of turbine
         :return: string
         """
-        return "Turbine: ({x:3.0f}, {y:3.0f})"\
-            .format(x=self.x, y=self.y)
+        return "Turbine: ({x:3.0f}, {y:3.0f}) ({v:2.0f}, {d:2.0f})"\
+            .format(x=self.x, y=self.y, v=self.w.v0, d=self.w.direction)
 
     def __lt__(self, other):
         """

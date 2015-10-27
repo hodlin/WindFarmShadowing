@@ -1,11 +1,18 @@
 #!/usr/bin/env python
-import collections
+from collections.abc import MutableSet
 
 __author__ = 'dmytro'
 
 
-class Farm(collections.abc):
+class Farm(MutableSet):
     """
     Farm consists of a number of wind turbines and provide energetic calculations
     """
-    s
+    turbines = []
+
+    def __init__(self, iterable):
+        """
+
+        :param iterable:
+        :return:
+        """

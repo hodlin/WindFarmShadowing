@@ -14,7 +14,7 @@ def circle_intersection_area(r1=0, r2=0, d=0):
     """
     assert r1 >= 0 and r2 >= 0, "Radiuses could not be negative! r1:{r1:2.2f} r2:{r2:2.2f}".format(r1=r1, r2=r2)
 
-    assert d >= 0, "Distance could not be negative! d:{d:3.0f}".format(d=d)
+    assert d >= 0, "Distance could not be negative! d:{d:3.1f}".format(d=d)
 
     if d > r1 + r2:
         return 0

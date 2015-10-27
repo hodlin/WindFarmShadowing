@@ -37,8 +37,23 @@ class Wind(object):
         else:
             raise ValueError("Out of range value of height")
 
+    def set_speed(self, speed):
+        """
+        Setting speed of wind
+        :param speed:
+        :return:
+        """
+        self.v0 = speed
 
-    def get_speed(self, h = 0):
+    def set_direction(self, direction):
+        """
+        Setting direction of wind
+        :param direction:
+        :return:
+        """
+        self.direction = direction
+
+    def get_speed(self, h=0):
         """
         Calculate value of wind speed at h height
         :param h: height in [meters]

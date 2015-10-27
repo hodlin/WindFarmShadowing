@@ -16,6 +16,10 @@ def wind_speed(w0=Wind(), t1=Turbine(0, 0, 0), t2=Turbine(0, 0, 0)):
     :return:speed in [meters per second]
     """
     t_dist = t1.dist(t2)
+
+    if t_dist == 0:
+        return round(w0.v0)
+
     r_radius = t1.d / 2
     c_radius = cone_radius(t1, t2)
     c_dist = distance_between_circles(t1, t2)
