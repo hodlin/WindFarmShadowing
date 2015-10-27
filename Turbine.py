@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 from math import hypot, pi, atan, fabs, sqrt
 from Nature import Nature
 from Wind import Wind
@@ -62,19 +62,19 @@ class Turbine(Nature):
         :return:angle in [radians]
         """
         if self.x == turbine.x:
-            return pi
+            return pi/2
         if self.y == turbine.y:
             return float(0)
 
-        return round(atan(fabs(self.y-turbine.y) / fabs(self.x-turbine.x)), 4)
+        return round(atan(abs(self.y-turbine.y) / abs(self.x-turbine.x)), 4)
 
     def __repr__(self):
         """
         String representation of turbine
         :return: string
         """
-        return "Turbine: ({x:3.0f}, {y:3.0f})\t({v:2.1f}|{d:1.2f})"\
-            .format(x=self.x, y=self.y, v=self.w.v0, d=self.w.direction)
+        return "Turbine: ({x:3.0f}, {y:3.0f})"\
+            .format(x=self.x, y=self.y)
 
     def __lt__(self, other):
         """

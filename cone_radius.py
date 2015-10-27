@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 from Turbine import Turbine
 from cone_height import cone_height
 from math import tan, radians

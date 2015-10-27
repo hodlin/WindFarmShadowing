@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 from math import acos, fabs, sqrt, pi
 
 __author__ = 'dmytro'
@@ -13,6 +13,7 @@ def circle_intersection_area(r1=0, r2=0, d=0):
     :return: area of lens  in which the circles intersect in [square meters]
     """
     assert r1 >= 0 and r2 >= 0, "Radiuses could not be negative! r1:{r1:2.2f} r2:{r2:2.2f}".format(r1=r1, r2=r2)
+
     assert d >= 0, "Distance could not be negative! d:{d:3.0f}".format(d=d)
 
     if d > r1 + r2:
