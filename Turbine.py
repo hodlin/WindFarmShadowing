@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from math import hypot, pi, atan, fabs
+from math import hypot, pi, atan, fabs, sqrt
 from Nature import Nature
 from Wind import Wind
 
@@ -69,8 +69,22 @@ class Turbine(Nature):
         return round(atan(fabs(self.y-turbine.y) / fabs(self.x-turbine.x)), 4)
 
     def __repr__(self):
+        """
+        String representation of turbine
+        :return: string
+        """
         return "Turbine: ({x:3.0f}, {y:3.0f})\t({v:2.1f}|{d:1.2f})"\
             .format(x=self.x, y=self.y, v=self.w.v0, d=self.w.direction)
+
+    def __lt__(self, other):
+        """
+        Compare two turbines by their place from origin (0, 0)
+        :param other: turbine to compare to
+        :return: boolean
+        """
+        self_dist = sqrt(self.x**2 + self.y**2)
+        other_dist = sqrt(other.x**2 + other.y**2)
+        return self_dist < other_dist
 
 
 if __name__ == "__main__":
