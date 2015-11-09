@@ -18,7 +18,9 @@ def wind_speed(w0=Wind(), t1=Turbine(0, 0, 0), t2=Turbine(0, 0, 0)):
     t_dist = t1.dist(t2)
 
     if t_dist == 0:
-        return round(w0.v0)
+        return t2.w.v0
+    if t1.direction(t2) == -1:
+        return t2.w.v0
 
     r_radius = t1.d / 2
     c_radius = cone_radius(t1, t2)
@@ -28,6 +30,9 @@ def wind_speed(w0=Wind(), t1=Turbine(0, 0, 0), t2=Turbine(0, 0, 0)):
         in_area = circle_intersection_area(r_radius, c_radius, c_dist)
     except AssertionError:
         in_area = 0
+
+    if in_area == 0:
+        return t2.w.v0
 
     w_speed = w0.v0 * (in_area / t1.area)\
                 * (1 - (1 - (t1.w.v0 / (3 * w0.v0)))\
