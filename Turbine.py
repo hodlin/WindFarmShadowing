@@ -83,8 +83,8 @@ class Turbine(Nature):
         String representation of turbine
         :return: string
         """
-        return "Turbine: ({x:3.0f}, {y:3.0f}) ({v:2.0f}, {d:2.0f})"\
-            .format(x=self.x, y=self.y, v=self.w.v0, d=self.w.direction)
+        return "Turbine: ({x:3.0f}, {y:3.0f}) ({v:2.0f})"\
+            .format(x=self.x, y=self.y, v=self.w.v0)
 
     def __lt__(self, other):
         """

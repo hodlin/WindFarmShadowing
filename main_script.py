@@ -24,10 +24,10 @@ def wind_range(v0, theta0=0, theta1=90):
 w0 = Wind(speed=15, direction=0)
 
 turbine1 = Turbine(x=0, y=0, d=40, w=w0)
-turbine2 = Turbine(x=100, y=0, d=40, w=Wind(speed=15, direction=0))
-turbine3 = Turbine(x=200, y=0, d=40, w=Wind(speed=15, direction=0))
+turbine2 = Turbine(x=200, y=0, d=40, w=Wind(speed=15, direction=0))
+turbine3 = Turbine(x=300, y=0, d=40, w=Wind(speed=15, direction=0))
 turbine4 = Turbine(x=0, y=200, d=40, w=Wind(speed=15, direction=0))
-turbine5 = Turbine(x=0, y=300, d=40, w=Wind(speed=15, direction=0))
+turbine5 = Turbine(x=0, y=400, d=40, w=Wind(speed=15, direction=0))
 turbine6 = Turbine(x=200, y=200, d=40, w=Wind(speed=15, direction=0))
 
 
@@ -49,7 +49,7 @@ for angle in drange(0, 90, 1):
     power = 0
 
     for i in xrange(len(turbines)):
-        for j in xrange(len(turbines)):
+        for j in xrange(i, len(turbines)):
             turbines[j].set_wind(wind_speed(w0, turbines[i], turbines[j]), w0.direction)
 
     for turbine in turbines:
@@ -66,14 +66,17 @@ for turbine in turbines:
 
 
 plt.figure(1)
+turbines_num = len(turbines)
 
-plt.subplot(211)
-plt.title('Wind speed, m')
-plt.plot(theta, speed[0], 'r-', theta, speed[1], 'b-', theta, speed[2], 'g-', theta, speed[3], 'y-',
-         theta, speed[4], 'o-', theta, speed[5], 'c-')
-plt.axis([0, 90, 0, 20])
+for i in xrange(turbines_num):
+    key = '' + str(turbines_num // (turbines_num // 2)) + str(turbines_num // 2) + str(i)
+    plt.subplot(key)
+    plt.title('Wind speed ' + str(turbines[i]) + ', m/s')
+    plt.plot(theta, speed[i], 'go') # , theta, speed[1], 'b-', theta, speed[2], 'g-', theta, speed[3], 'yo',
+         # theta, speed[4], 'k-', theta, speed[5], 'c-'
+    plt.axis([0, 90, 0, 20])
 
-plt.subplot(212)
+plt.figure(2)
 plt.title('Power output, W')
 plt.plot(theta, output, 'g-')
 plt.axis([0, 90, 0, 100000])
