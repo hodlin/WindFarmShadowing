@@ -2,7 +2,7 @@
 from Turbine import Turbine
 from Wind import Wind
 from wind_speed import wind_speed
-from math import pi, radians
+from math import pi, radians, sqrt
 import matplotlib.pyplot as plt
 
 
@@ -25,16 +25,16 @@ w0 = Wind(speed=15, direction=0)
 
 turbine1 = Turbine(x=0, y=0, d=40, w=w0)
 turbine2 = Turbine(x=200, y=0, d=40, w=Wind(speed=15, direction=0))
-# turbine3 = Turbine(x=400, y=0, d=40, w=Wind(speed=15, direction=0))
-turbine4 = Turbine(x=0, y=200, d=40, w=Wind(speed=15, direction=0))
-# turbine5 = Turbine(x=0, y=400, d=40, w=Wind(speed=15, direction=0))
-turbine6 = Turbine(x=200, y=200, d=40, w=Wind(speed=15, direction=0))
-# turbine7 = Turbine(x=200, y=400, d=40, w=Wind(speed=15, direction=0))
-# turbine8 = Turbine(x=400, y=200, d=40, w=Wind(speed=15, direction=0))
-# turbine9 = Turbine(x=400, y=400, d=40, w=Wind(speed=15, direction=0))
-
-turbines = [turbine1, turbine2, turbine4, turbine6]
-# turbines = [turbine1, turbine2, turbine3, turbine4, turbine5, turbine6, turbine7, turbine8, turbine9]
+turbine5 = Turbine(x=400, y=0, d=40, w=Wind(speed=15, direction=0))
+turbine3 = Turbine(x=0, y=200, d=40, w=Wind(speed=15, direction=0))
+turbine6 = Turbine(x=0, y=400, d=40, w=Wind(speed=15, direction=0))
+turbine4 = Turbine(x=200, y=200, d=40, w=Wind(speed=15, direction=0))
+turbine7 = Turbine(x=200, y=400, d=40, w=Wind(speed=15, direction=0))
+turbine8 = Turbine(x=400, y=200, d=40, w=Wind(speed=15, direction=0))
+turbine9 = Turbine(x=400, y=400, d=40, w=Wind(speed=15, direction=0))
+#
+# turbines = [turbine1, turbine2, turbine4, turbine6]
+turbines = [turbine1, turbine2, turbine3, turbine4, turbine5, turbine6, turbine7, turbine8, turbine9]
 turbines.sort()
 
 # for turbine in turbines:
@@ -73,7 +73,8 @@ plt.figure(1)
 turbines_num = len(turbines)
 
 for i in xrange(turbines_num):
-    key = '' + str(turbines_num // (turbines_num // 2)) + str(turbines_num // 2) + str(i)
+    key = '' + str(int(sqrt(turbines_num) // 1)) + str(int(sqrt(turbines_num) // 1)) + str(i)
+    print key
     plt.subplot(key)
     plt.title('Wind speed ' + str(turbines[i]) + ', m/s')
     plt.plot(theta, speed[i], 'g-') # , theta, speed[1], 'b-', theta, speed[2], 'g-', theta, speed[3], 'yo',
@@ -81,8 +82,10 @@ for i in xrange(turbines_num):
     plt.axis([0, 90, 0, 20])
 
 plt.figure(2)
-plt.title('Power output, W')
-plt.plot(theta, output, 'g-')
-plt.axis([0, 90, 0, 100000])
+plt.title('4-turbines wind farm')
+plt.plot(theta, output, 'k-', linewidth=2)
+plt.xlabel('Wind direction, deg')
+plt.ylabel('Output, kW')
+plt.axis([0, 90, 0, 10000])
 
 plt.show()
