@@ -16,13 +16,13 @@ def distance_between_circles(t1=Turbine(0, 0, 20), t2=Turbine(0, 0, 20)):
     direct = t1.direction(t2)
     theta = t1.w.direction
 
-    if theta == 0 or theta == direct:
+    if theta == 0:
         return round(d * sin(direct), 2)
 
     if theta > direct:
         return round(d * sin(theta - direct), 2)
 
-    if theta < direct:
+    if theta < direct or theta == direct:
         return round(d * tan(direct - theta), 2)
 
 

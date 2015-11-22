@@ -25,15 +25,15 @@ class Wind(object):
         :return:
         """
         if 0 <= speed <= 50:
-            self.v0 = speed
+            self.v0 = float(speed)
         else:
             raise ValueError("Out of range value of initial velocity")
         if 0 <= direction <= pi:
-            self.direction = direction
+            self.direction = float(direction)
         else:
             raise ValueError("Out of range value of direction")
         if 10 <= height <= 200:
-            self.height = height
+            self.height = float(height)
         else:
             raise ValueError("Out of range value of height")
 
@@ -43,7 +43,7 @@ class Wind(object):
         :param speed:
         :return:
         """
-        self.v0 = speed
+        self.v0 = float(speed)
 
     def set_direction(self, direction):
         """
@@ -51,7 +51,7 @@ class Wind(object):
         :param direction:
         :return:
         """
-        self.direction = direction
+        self.direction = float(direction)
 
     def get_speed(self, h=0):
         """
