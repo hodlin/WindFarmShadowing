@@ -1,12 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from Turbine import Turbine
 from Wind import Wind
 from wind_speed import wind_speed
 from math import pi, radians, sqrt
 import matplotlib.pyplot as plt
-
-
-__author__ = 'dmytro'
 
 
 def drange(start, stop, step):
@@ -23,15 +20,15 @@ def wind_range(v0, theta0=0, theta1=90):
 
 w0 = Wind(speed=15, direction=0)
 
-turbine1 = Turbine(x=0, y=0, d=40, w=w0)
-turbine2 = Turbine(x=200, y=0, d=40, w=Wind(speed=15, direction=0))
-turbine5 = Turbine(x=400, y=0, d=40, w=Wind(speed=15, direction=0))
-turbine3 = Turbine(x=0, y=200, d=40, w=Wind(speed=15, direction=0))
-turbine6 = Turbine(x=0, y=400, d=40, w=Wind(speed=15, direction=0))
-turbine4 = Turbine(x=200, y=200, d=40, w=Wind(speed=15, direction=0))
-turbine7 = Turbine(x=200, y=400, d=40, w=Wind(speed=15, direction=0))
-turbine8 = Turbine(x=400, y=200, d=40, w=Wind(speed=15, direction=0))
-turbine9 = Turbine(x=400, y=400, d=40, w=Wind(speed=15, direction=0))
+turbine1 = Turbine(d=40, x=0, y=0,  w=w0)
+turbine2 = Turbine(d=40, x=200, y=0, w=Wind(speed=15, direction=0))
+turbine5 = Turbine(d=40, x=400, y=0, w=Wind(speed=15, direction=0))
+turbine3 = Turbine(d=40, x=0, y=200, w=Wind(speed=15, direction=0))
+turbine6 = Turbine(d=40, x=0, y=400, w=Wind(speed=15, direction=0))
+turbine4 = Turbine(d=40, x=200, y=200, w=Wind(speed=15, direction=0))
+turbine7 = Turbine(d=40, x=200, y=400, w=Wind(speed=15, direction=0))
+turbine8 = Turbine(d=40, x=400, y=200, w=Wind(speed=15, direction=0))
+turbine9 = Turbine(d=40, x=400, y=400, w=Wind(speed=15, direction=0))
 #
 # turbines = [turbine1, turbine2, turbine4, turbine6]
 turbines = [turbine1, turbine2, turbine3, turbine4, turbine5, turbine6, turbine7, turbine8, turbine9]

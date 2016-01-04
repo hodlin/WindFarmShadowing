@@ -5,8 +5,6 @@ from circle_circle_intersection import circle_intersection_area
 from cone_radius import cone_radius
 from distance_between_circles import distance_between_circles
 
-__author__ = 'dmytro'
-
 
 def wind_speed(w0=Wind(), t1=Turbine(0, 0, 0), t2=Turbine(0, 0, 0)):
     """

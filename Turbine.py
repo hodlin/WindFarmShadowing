@@ -3,8 +3,6 @@ from math import hypot, pi, atan, fabs, sqrt
 from Nature import Nature
 from Wind import Wind
 
-__author__ = 'dmytro'
-
 
 class Turbine(Nature):
     """
@@ -14,7 +12,7 @@ class Turbine(Nature):
     Wind at x,y coordinate
     """
 
-    def __init__(self, x, y, d, w=Wind(speed=0, direction=0), xi=0.4, h=10):
+    def __init__(self, d, x=0, y=0, w=Wind(speed=0, direction=0), xi=0.4, h=10):
         """
         Initializing wind turbine parameters
         :param x: x-coordinate

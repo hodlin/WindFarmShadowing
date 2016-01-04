@@ -2,8 +2,6 @@
 from Turbine import Turbine
 from math import sin, tan
 
-__author__ = 'dmytro'
-
 
 def distance_between_circles(t1=Turbine(0, 0, 20), t2=Turbine(0, 0, 20)):
     """

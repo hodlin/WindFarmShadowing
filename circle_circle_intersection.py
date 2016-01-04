@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 from math import acos, fabs, sqrt, pi
 
-__author__ = 'dmytro'
-
 
 def circle_intersection_area(r1=0, r2=0, d=0):
     """
